@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public class OperationService {
+public class OperationService implements ChangeAmount{
     private final WalletRepository walletRepository;
 
     public OperationService(WalletRepository walletRepository) {
