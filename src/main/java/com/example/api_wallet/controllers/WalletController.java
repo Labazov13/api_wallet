@@ -4,7 +4,6 @@ import com.example.api_wallet.dao.WalletRepository;
 import com.example.api_wallet.dto.Request;
 import com.example.api_wallet.models.Wallet;
 import com.example.api_wallet.services.OperationService;
-import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

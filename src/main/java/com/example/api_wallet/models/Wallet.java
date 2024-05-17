@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Entity
 @Table(name = "wallets")

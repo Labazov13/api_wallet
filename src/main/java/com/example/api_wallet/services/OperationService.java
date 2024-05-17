@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class OperationService {
@@ -20,7 +19,7 @@ public class OperationService {
 
     @Transactional
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    public synchronized boolean deposit(Wallet wallet, BigDecimal amount) {
+    public boolean deposit(Wallet wallet, BigDecimal amount) {
         if (amount.longValue() <= 0) {
             return false;
         }
@@ -32,7 +31,7 @@ public class OperationService {
 
     @Transactional
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    public synchronized boolean withdraw(Wallet wallet, BigDecimal amount) {
+    public boolean withdraw(Wallet wallet, BigDecimal amount) {
         long currentBalance = wallet.getAccount().longValue();
         if (wallet.getAccount().longValue() >= amount.longValue() && amount.longValue() != 0) {
             wallet.setAccount(new BigDecimal(currentBalance - amount.longValue()));
