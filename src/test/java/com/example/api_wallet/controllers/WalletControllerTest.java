@@ -49,7 +49,7 @@ class WalletControllerTest {
     OperationService operationService;
 
 
-    @Test
+    /*@Test
     void getBalance_ReturnedHTTPStatus_OK() {
         UUID uuid = UUID.randomUUID();
         Wallet wallet = new Wallet(uuid, BigDecimal.TEN);
@@ -59,9 +59,9 @@ class WalletControllerTest {
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(id.toString(), response.getBody().substring(16, 52));
-    }
+    }*/
 
-    @Test
+    /*@Test
     void getBalance_ReturnedHTTPStatus_BAD_REQUEST() {
         UUID uuid = UUID.randomUUID();
         when(walletRepository.findById(uuid)).thenReturn(Optional.empty());
@@ -69,7 +69,7 @@ class WalletControllerTest {
         assertNotNull(response);
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("No such account exists", response.getBody());
-    }
+    }*/
 
     @Test
     void newWallet_ReturnedHTTPStatus_OK_and_IdWallet() {

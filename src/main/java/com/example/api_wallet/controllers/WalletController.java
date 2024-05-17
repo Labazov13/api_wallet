@@ -2,6 +2,7 @@ package com.example.api_wallet.controllers;
 
 import com.example.api_wallet.dao.WalletRepository;
 import com.example.api_wallet.dto.Request;
+import com.example.api_wallet.exceptions.NoSuchWalletException;
 import com.example.api_wallet.models.Wallet;
 import com.example.api_wallet.services.OperationService;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,12 @@ public class WalletController {
                         value.getId(), value.getAccount().longValue())))
                 .orElseGet(() -> ResponseEntity.badRequest().body("No such account exists"));
     }
+    /*@GetMapping(value = "/wallets/{WALLET_UUID}")
+    public ResponseEntity<?> getBalance(@PathVariable(name = "WALLET_UUID") UUID id)
+    throws NoSuchWalletException {
+        Optional<Wallet> wallet = walletRepository.findById(id);
+        return ResponseEntity.ok().body(wallet.orElseThrow(() -> new NoSuchWalletException("No such account exists")));
+    }*/
 
     @PostMapping(value = "/wallet/new")
     public ResponseEntity<String> newWallet(@RequestBody Request request) {
