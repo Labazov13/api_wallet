@@ -1,11 +1,14 @@
 package com.example.api_wallet.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Entity
 @Table(name = "wallets")
@@ -21,10 +24,10 @@ public class Wallet implements Serializable {
         this.id = id;
         this.account = account;
     }
-
-    public Wallet(BigDecimal account) {
-        this.account = account;
+    public Wallet(BigDecimal initialBalance) {
+        this.account = initialBalance;
     }
+
 
     public UUID getId() {
         return id;
